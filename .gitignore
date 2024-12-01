@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AdventOfCode2024
+/AdventOfCode2024/x64/Debug
+/input
+/x64/Debug
+/AdventOfCode2024.vcxproj.filters
+/AdventOfCode2024.vcxproj.user
