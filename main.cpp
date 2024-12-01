@@ -3,5 +3,5 @@
 
 int main()
 {
-	solution_01_a("input/01-input.txt");
+	solution_01_b("input/01-input.txt");
 }
