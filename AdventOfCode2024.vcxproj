@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClCompile Include="01-a.cpp" />
     <ClCompile Include="01-b.cpp" />
+    <ClCompile Include="02-a.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
