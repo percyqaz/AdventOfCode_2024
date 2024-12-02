@@ -5,7 +5,7 @@
 
 using int_list = std::vector<int>;
 
-void solution_01_b(const char* input)
+__int64 solution_01_b(const char* input)
 {
 	std::ifstream file(input);
 	_ASSERT(file.is_open());
@@ -33,5 +33,5 @@ void solution_01_b(const char* input)
 			}
 		}
 	}
-	std::cout << "Total similarity: " << similarity;
+	return similarity;
 }
