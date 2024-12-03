@@ -13,4 +13,7 @@ int main()
 	time_it(solution_02_a, "input/02-input.txt", 334);
 	time_it(solution_02_b, "input/02-example.txt", 4);
 	time_it(solution_02_b, "input/02-input.txt", 400);
+
+	time_it(solution_03_a, "input/03-example.txt", 161);
+	time_it(solution_03_a, "input/03-input.txt", 189600467);
 }
