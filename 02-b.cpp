@@ -3,16 +3,16 @@
 #include <sstream>
 
 // is entire remainder of this stream safe
-bool is_safe_part_1(std::istringstream& iss)
+bool is_safe_part_1(int* report)
 {
-	int a, b{};
-	iss >> std::ws >> a >> b;
+	int a{ *(report++) };
+	int b{ *(report++) };
 	if (a == b || std::abs(a - b) > 3)
 	{
 		return false;
 	}
 	int next{};
-	while (iss >> next)
+	while (next = *(report++))
 	{
 		if (
 			(b > a && (next - b < 1 || next - b > 3))
@@ -27,17 +27,17 @@ bool is_safe_part_1(std::istringstream& iss)
 }
 
 // is this stream safe except second number
-bool is_safe_bug_fix(std::istringstream& iss)
+bool is_safe_bug_fix(int* report)
 {
-	int a, b{};
-	int discard_second;
-	iss >> std::ws >> a >> discard_second >> b;
+	int a{ *(report++) };
+	++report;
+	int b{ *(report++) };
 	if (a == b || std::abs(a - b) > 3)
 	{
 		return false;
 	}
 	int next{};
-	while (iss >> next)
+	while (next = *(report++))
 	{
 		if (
 			(b > a && (next - b < 1 || next - b > 3))
@@ -52,22 +52,22 @@ bool is_safe_bug_fix(std::istringstream& iss)
 }
 
 // is this report safe with a skip allowed
-bool is_safe_part_2(std::istringstream& iss)
+bool is_safe_part_2(int* report)
 {
-	int a, b{};
-	iss >> a >> b;
+	int a{ *(report++) };
+	int b{ *(report++) };
 	bool used_skip{ false };
 	if (a == b || std::abs(a - b) > 3)
 	{
 		used_skip = true;
-		iss >> b;
+		b = *(report++);
 		if (a == b || std::abs(a - b) > 3)
 		{
 			return false;
 		}
 	}
 	int next{};
-	while (iss >> next)
+	while (next = *(report++))
 	{
 		if (
 			(b > a && (next - b < 1 || next - b > 3))
@@ -86,23 +86,83 @@ bool is_safe_part_2(std::istringstream& iss)
 	return true;
 }
 
+static bool digit(const char* c, int& value)
+{
+	switch (*c)
+	{
+	case '0':
+		value *= 10;
+		return true;
+	case '1':
+		value *= 10;
+		value += 1;
+		return true;
+	case '2':
+		value *= 10;
+		value += 2;
+		return true;
+	case '3':
+		value *= 10;
+		value += 3;
+		return true;
+	case '4':
+		value *= 10;
+		value += 4;
+		return true;
+	case '5':
+		value *= 10;
+		value += 5;
+		return true;
+	case '6':
+		value *= 10;
+		value += 6;
+		return true;
+	case '7':
+		value *= 10;
+		value += 7;
+		return true;
+	case '8':
+		value *= 10;
+		value += 8;
+		return true;
+	case '9':
+		value *= 10;
+		value += 9;
+		return true;
+	default:
+		return false;
+	}
+}
+
+static int number(char*& c, int* output)
+{
+	*output = 0;
+	for (; digit(c, *output); c++);
+	return *output;
+}
+
+constexpr int LARGEST_REPORT{ 8 };
+constexpr int BUFFER_SIZE{ LARGEST_REPORT + 1 };
+
 __int64 solution_02_b(const char* input)
 {
 	std::ifstream file(input);
 	_ASSERT(file.is_open());
 	std::string line;
 	int safe{ 0 };
-	int discard_first;
+	int buffer[BUFFER_SIZE];
 	while (std::getline(file, line))
 	{
-		std::istringstream iss(line);
-		std::istringstream iss2(line);
-		std::istringstream with_first_removed(line);
-		with_first_removed >> discard_first;
-		if (is_safe_part_2(iss) || is_safe_part_1(with_first_removed) || is_safe_bug_fix(iss2))
+		int i{ 0 };
+		char* c{ line.data() };
+		for (; number(c, &buffer[i]); ++i)
 		{
-			safe++;
+			if (*c == ' ') ++c;
+			else break;
 		}
+		buffer[i + 1] = 0;
+		if (is_safe_part_2(buffer) || is_safe_bug_fix(buffer) || is_safe_part_1(buffer + 1))
+			safe++;
 	}
 	return safe;
 }
