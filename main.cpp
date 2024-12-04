@@ -24,4 +24,6 @@ int main()
 
 	time_it(solution_04_a, "input/04-example.txt", 18);
 	time_it(solution_04_a, "input/04-input.txt", 2593);
+	time_it(solution_04_b, "input/04-example.txt", 9);
+	time_it(solution_04_b, "input/04-input.txt", 1950);
 }
