@@ -30,4 +30,7 @@ int main()
 
 	time_it(solution_05_a, "input/05-example.txt", 143);
 	time_it(solution_05_a, "input/05-input.txt", 5509);
+	time_it(solution_05_b, "input/05-example.txt", 123);
+	time_it(solution_05_b, "input/05-input.txt", 4407);
+	std::cout << std::endl;
 }
