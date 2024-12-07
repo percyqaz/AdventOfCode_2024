@@ -140,6 +140,7 @@
     <ClCompile Include="05-a.cpp" />
     <ClCompile Include="05-b.cpp" />
     <ClCompile Include="06-a.cpp" />
+    <ClCompile Include="06-b.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
