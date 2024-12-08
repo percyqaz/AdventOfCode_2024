@@ -6,50 +6,8 @@
 
 static void pdigit(const char* c, int& value)
 {
-	switch (*c)
-	{
-	case '0':
-		value *= 10;
-		return;
-	case '1':
-		value *= 10;
-		value += 1;
-		return;
-	case '2':
-		value *= 10;
-		value += 2;
-		return;
-	case '3':
-		value *= 10;
-		value += 3;
-		return;
-	case '4':
-		value *= 10;
-		value += 4;
-		return;
-	case '5':
-		value *= 10;
-		value += 5;
-		return;
-	case '6':
-		value *= 10;
-		value += 6;
-		return;
-	case '7':
-		value *= 10;
-		value += 7;
-		return;
-	case '8':
-		value *= 10;
-		value += 8;
-		return;
-	case '9':
-		value *= 10;
-		value += 9;
-		return;
-	default:
-		throw std::logic_error("Expected digit");
-	}
+	value *= 10;
+	value += *c - '0';
 }
 
 __int64 solution_05_b(const char* input)
