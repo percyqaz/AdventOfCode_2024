@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <set>
 
-__int64 solution_08_a(const char* input)
+__int64 solution_08_b(const char* input)
 {
 	std::ifstream file(input);
 	_ASSERT(file.is_open());
@@ -40,11 +40,14 @@ __int64 solution_08_a(const char* input)
 				std::pair<size_t, size_t>& a{ group[i] };
 				std::pair<size_t, size_t>& b{ group[j] };
 
-				ax = b.first + b.first - a.first;
-				if (ax < 0 || ax >= y) continue;
-				ay = b.second + b.second - a.second;
-				if (ay < 0 || ay >= y) continue;
-				antinodes.insert({ ax, ay });
+				ax = a.first;
+				ay = a.second;
+				while (ax >= 0 && ax < y && ay >= 0 && ay < y)
+				{
+					antinodes.insert({ ax, ay });
+					ax += b.first - a.first;
+					ay += b.second - a.second;
+				}
 			}
 		}
 	}
