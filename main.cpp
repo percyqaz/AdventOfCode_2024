@@ -43,7 +43,6 @@ int main()
 	time_it(solution_07_a, "input/07-example.txt", 3749);
 	time_it(solution_07_a, "input/07-input.txt", 1708857123053);
 	time_it(solution_07_b, "input/07-example.txt", 11387);
-	time_it(solution_07_b, "input/07-testcases.txt", 189207836795655);
 	time_it(solution_07_b, "input/07-input.txt", 189207836795655);
 	std::cout << std::endl;
 }

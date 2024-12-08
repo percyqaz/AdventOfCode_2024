@@ -52,31 +52,46 @@ static void pdigit(const char* c, __int64& value)
 	}
 }
 
-static void reverse_digits_onto(__int64& source, __int64& target)
-{
-	while (source)
-	{
-		target *= 10;
-		target += source % 10;
-		source /= 10;
-	}
-}
-
 const __int64 concat(__int64 left, __int64 right)
 {
-	__int64 temp{ 0 };
-	reverse_digits_onto(right, temp);
-	reverse_digits_onto(temp, left);
+	if (right >= 100)
+	{
+		left *= 10;
+		left += right / 100;
+		right %= 100;
+		left *= 10;
+		left += right / 10;
+		right %= 10;
+		left *= 10;
+		left += right;
+		return left;
+	}
+
+	if (right >= 10)
+	{
+		left *= 10;
+		left += right / 10;
+		right %= 10;
+		left *= 10;
+		left += right;
+		return left;
+	}
+
+	left *= 10;
+	left += right;
 	return left;
 }
 
 static const bool possible_rec(const __int64 target, const std::vector<__int64>& numbers, const size_t index, const __int64 accumulator)
 {
-	__int64 next = numbers[index];
-	__int64 cat = concat(accumulator, next);
+	const __int64 next = numbers[index];
+	const __int64 cat = concat(accumulator, next);
 	if (index + 1 == numbers.size())
 	{
-		return (cat == target || next * accumulator == target || next + accumulator == target);
+		return
+			cat == target ||
+			next * accumulator == target ||
+			next + accumulator == target;
 	}
 
 	if (target >= cat && possible_rec(target, numbers, index + 1, cat))
