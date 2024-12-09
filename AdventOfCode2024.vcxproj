@@ -146,6 +146,7 @@
     <ClCompile Include="08-a.cpp" />
     <ClCompile Include="08-b.cpp" />
     <ClCompile Include="09-a.cpp" />
+    <ClCompile Include="09-b.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
