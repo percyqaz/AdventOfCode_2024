@@ -4,6 +4,10 @@
 
 int main()
 {
+	time_it(solution_12_a, "input/12-example.txt", 1930);
+	time_it(solution_12_a, "input/12-input.txt", 1319878);
+	std::cout << std::endl;
+
 	time_it(solution_11_a, "input/11-example.txt", 55312);
 	time_it(solution_11_a, "input/11-input.txt", 187738);
 
