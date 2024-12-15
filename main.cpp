@@ -6,6 +6,8 @@ int main()
 {
 	time_it(solution_13_a, "input/13-example.txt", 480);
 	time_it(solution_13_a, "input/13-input.txt", 31761);
+
+	time_it(solution_13_b, "input/13-input.txt", 90798500745591);
 	return 0;
 
 	time_it(solution_12_a, "input/12-example.txt", 1930);
