@@ -4,6 +4,10 @@
 
 int main()
 {
+	time_it(solution_13_a, "input/13-example.txt", 480);
+	time_it(solution_13_a, "input/13-input.txt", 31761);
+	return 0;
+
 	time_it(solution_12_a, "input/12-example.txt", 1930);
 	time_it(solution_12_a, "input/12-input.txt", 1319878);
 	time_it(solution_12_b, "input/12-example.txt", 1206);

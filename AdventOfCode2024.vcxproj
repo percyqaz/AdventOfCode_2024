@@ -153,6 +153,7 @@
     <ClCompile Include="11-b.cpp" />
     <ClCompile Include="12-a.cpp" />
     <ClCompile Include="12-b.cpp" />
+    <ClCompile Include="13-a.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
