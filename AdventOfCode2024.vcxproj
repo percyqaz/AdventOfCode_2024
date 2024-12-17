@@ -159,6 +159,7 @@
     <ClCompile Include="14-b.cpp" />
     <ClCompile Include="15-a.cpp" />
     <ClCompile Include="15-b.cpp" />
+    <ClCompile Include="16-a.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
