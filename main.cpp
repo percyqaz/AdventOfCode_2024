@@ -4,15 +4,17 @@
 
 int main()
 {
+	time_it(solution_15_a, "input/15-example.txt", 10092);
+	time_it(solution_15_a, "input/15-input.txt", 1514333);
+	std::cout << std::endl;
+
 	time_it(solution_14_a, "input/14-example.txt", 12);
 	time_it(solution_14_a, "input/14-input.txt", 222062148);
-
 	time_it(solution_14_b, "input/14-input.txt", 7520);
 	std::cout << std::endl;
 
 	time_it(solution_13_a, "input/13-example.txt", 480);
 	time_it(solution_13_a, "input/13-input.txt", 31761);
-
 	time_it(solution_13_b, "input/13-input.txt", 90798500745591);
 	std::cout << std::endl;
 
@@ -24,7 +26,6 @@ int main()
 
 	time_it(solution_11_a, "input/11-example.txt", 55312);
 	time_it(solution_11_a, "input/11-input.txt", 187738);
-
 	time_it(solution_11_b, "input/11-input.txt", 223767210249237);
 	std::cout << std::endl;
 
