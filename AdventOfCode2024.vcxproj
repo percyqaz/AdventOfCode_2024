@@ -166,6 +166,7 @@
     <ClCompile Include="18-a.cpp" />
     <ClCompile Include="18-b.cpp" />
     <ClCompile Include="19-a.cpp" />
+    <ClCompile Include="19-b.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

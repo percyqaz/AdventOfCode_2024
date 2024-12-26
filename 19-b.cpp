@@ -2,11 +2,17 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <map>
 
-static bool possible(const char* current, std::vector<const char*>& patterns)
+static __int64 possibilities(const char* current, std::vector<const char*>& patterns, std::map<const char*, __int64>& memoisation)
 {
 	if (!*current)
-		return true;
+		return 1;
+
+	if (memoisation.contains(current))
+		return memoisation[current];
+
+	__int64 ps{ 0 };
 
 	for (const char* p : patterns)
 	{
@@ -19,13 +25,15 @@ static bool possible(const char* current, std::vector<const char*>& patterns)
 			c++;
 			t++;
 		}
-		if (!*t && possible(c, patterns))
-			return true;
+		if (!*t)
+			ps += possibilities(c, patterns, memoisation);
 	}
-	return false;
+
+	memoisation[current] = ps;
+	return ps;
 }
 
-__int64 solution_19_a(const char* input)
+__int64 solution_19_b(const char* input)
 {
 	std::ifstream file(input);
 	_ASSERT(file.is_open());
@@ -51,11 +59,12 @@ __int64 solution_19_a(const char* input)
 	std::string line;
 	std::getline(file, line);
 	__int64 possibles{ 0 };
+	std::map<const char*, __int64> memoisation{};
 	while (std::getline(file, line))
 	{
 		const char* c = line.c_str();
-		if (possible(c, patterns))
-			possibles++;
+		possibles += possibilities(c, patterns, memoisation);
+		memoisation.clear();
 	}
 	return possibles;
 }
