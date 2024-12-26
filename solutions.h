@@ -52,7 +52,7 @@ std::string solution_17_a(const char* input);
 __int64 solution_17_b(const char* input);
 
 __int64 solution_18_a(const char* input);
-__int64 solution_18_b(const char* input);
+std::string solution_18_b(const char* input);
 
 __int64 solution_19_a(const char* input);
 __int64 solution_19_b(const char* input);
