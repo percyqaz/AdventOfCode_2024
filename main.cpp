@@ -4,6 +4,10 @@
 
 int main()
 {
+	time_it(solution_18_a, "input/18-example.txt", 22);
+	time_it(solution_18_a, "input/18-input.txt", 318);
+	std::cout << std::endl;
+
 	time_it(solution_17_a, "input/17-example.txt", std::string{ "4,6,3,5,6,3,5,2,1,0" });
 	time_it(solution_17_a, "input/17-input.txt", std::string{ "7,6,5,3,6,5,7,0,4" });
 	time_it(solution_17_b, "input/17-testcase.txt", 117440);
